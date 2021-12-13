@@ -1,0 +1,31 @@
+{
+    "data": [
+      {
+        "id": 1,
+        "title": "Avengers: Age of Ultron",
+        "category": "Marvel",
+        "duration": 143,
+        "release_date": "2015-04-23",
+        "rating": "Twelve",
+        "description": "Tony Stark unwittingly creates an A.I. monster bent on destroying mankind",
+        "is_premier": false,
+        "genres": [
+          "ScienceFiction",
+          "SuperHero",
+          "ActionAdventure"
+        ],
+        "starring": [
+          "Robert Downey Jr.",
+          "Chris Hemsworth",
+          "Mark Ruffalo",
+          "Chris Evans",
+          "Scarlett Johansson",
+          "Jeremy Renner"
+        ],
+        "logo_image_path": "assets/images/movies/avengers_age_of_ultron/logo.png",
+        "browse_image_path": "assets/images/movies/avengers_age_of_ultron/browse.PNG",
+        "selected_image_path": "assets/images/movies/avengers_age_of_ultron/selected.PNG",
+        "highlight_image_path": ""
+      }
+    ]
+  }

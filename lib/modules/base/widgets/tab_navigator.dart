@@ -1,4 +1,5 @@
 import 'package:disney_plus/modules/base/types/tab_type.dart';
+import 'package:disney_plus/modules/home/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class TabNavigator extends StatelessWidget {
@@ -17,7 +18,7 @@ class TabNavigator extends StatelessWidget {
 
     switch (tabType) {
       case TabType.Home:
-        child = const Text('Home');
+        child = const HomeScreen();
         break;
       case TabType.Search:
         child = const Text('Search');
