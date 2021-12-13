@@ -1,5 +1,5 @@
-import 'package:disney_plus/modules/types/tab_type.dart';
-import 'package:disney_plus/modules/widgets/tab_navigator.dart';
+import 'package:disney_plus/modules/base/types/tab_type.dart';
+import 'package:disney_plus/modules/base/widgets/tab_navigator.dart';
 import 'package:flutter/material.dart';
 
 class NavigatorBase extends StatefulWidget {

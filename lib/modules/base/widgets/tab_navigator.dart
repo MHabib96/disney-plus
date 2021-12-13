@@ -1,4 +1,4 @@
-import 'package:disney_plus/modules/types/tab_type.dart';
+import 'package:disney_plus/modules/base/types/tab_type.dart';
 import 'package:flutter/material.dart';
 
 class TabNavigator extends StatelessWidget {
