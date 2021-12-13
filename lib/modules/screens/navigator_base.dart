@@ -47,7 +47,6 @@ class _NavigatorBaseState extends State<NavigatorBase> {
     return WillPopScope(
       onWillPop: () async => !await _navigatorKeys[_currentTab]!.currentState!.maybePop(),
       child: Scaffold(
-        backgroundColor: const Color.fromRGBO(54, 69, 79, 0.2),
         body: Stack(
           children: [
             _buildOffstageNavigator(TabType.Home),
@@ -56,12 +55,6 @@ class _NavigatorBaseState extends State<NavigatorBase> {
         ),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _currentIndex,
-          selectedItemColor: Colors.white,
-          unselectedItemColor: Colors.blueGrey,
-          backgroundColor: const Color.fromRGBO(54, 69, 79, 0.3),
-          type: BottomNavigationBarType.fixed,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
           onTap: (index) => _onSelectedTab(TabType.values[index]),
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
