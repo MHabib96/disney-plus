@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 
 class JsonService implements IJsonService {
   @override
-  Future<List<Movie>> deserializeMovies() async {
+  Future<List<Movie>> getMoviesFromJson() async {
     final jsonString = await rootBundle.loadString('assets/json/movies.json');
     final jsonMap = await json.decode(jsonString);
     List<Movie> output = [];
