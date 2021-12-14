@@ -15,6 +15,7 @@ dependencies:
   shared_preferences: ^2.0.8
   flutter_bloc: ^7.3.2
   equatable: ^2.0.3
+  carousel_slider: ^4.0.0
 
 dev_dependencies:
   flutter_test:
@@ -28,6 +29,14 @@ flutter:
 
   assets:
     - assets/json/movies.json
+    - assets/images/logos/
+    - assets/images/category_logos/
+    - assets/images/movies/avengers/
+    - assets/images/movies/avengers_age_of_ultron/
+    - assets/images/movies/avengers_infinity_war/
+    - assets/images/movies/avengers_endgame/
+    - assets/images/movies/the_falcon_and_the_winter_soldier/
+    - assets/images/movies/loki/
 
   # fonts:
   #   - family: Schyler
