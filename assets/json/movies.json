@@ -2,6 +2,34 @@
     "data": [
       {
         "id": 1,
+        "title": "Avengers",
+        "category": "Marvel",
+        "duration": 145,
+        "release_date": "2012-04-26",
+        "rating": "Twelve",
+        "description": "Nick Fury recruits a team of heroes to battle an unexpected enemy.",
+        "is_premier": false,
+        "genres": [
+          "ScienceFiction",
+          "Fantasy",
+          "SuperHero",
+          "ActionAdventure"
+        ],
+        "starring": [
+          "Robert Downey Jr.",
+          "Chris Hemsworth",
+          "Mark Ruffalo",
+          "Chris Evans",
+          "Scarlett Johansson",
+          "Jeremy Renner"
+        ],
+        "logo_image_path": "assets/images/movies/avengers/logo.png",
+        "browse_image_path": "assets/images/movies/avengers/browse.PNG",
+        "selected_image_path": "assets/images/movies/avengers/selected.PNG",
+        "highlight_image_path": ""
+      },
+      {
+        "id": 2,
         "title": "Avengers: Age of Ultron",
         "category": "Marvel",
         "duration": 143,
@@ -26,6 +54,88 @@
         "browse_image_path": "assets/images/movies/avengers_age_of_ultron/browse.PNG",
         "selected_image_path": "assets/images/movies/avengers_age_of_ultron/selected.PNG",
         "highlight_image_path": ""
+      },
+      {
+        "id": 3,
+        "title": "Avengers: Infinity War",
+        "category": "Marvel",
+        "duration": 152,
+        "release_date": "2018-04-26",
+        "rating": "Twelve",
+        "description": "The Avengers must be willing to sacrifice all to defat Thanos",
+        "is_premier": false,
+        "genres": [
+          "ScienceFiction",
+          "Fantasy",
+          "SuperHero",
+          "ActionAdventure"
+        ],
+        "starring": [
+          "Robert Downey Jr.",
+          "Chris Hemsworth",
+          "Mark Ruffalo",
+          "Chris Evans",
+          "Scarlett Johansson",
+          "Jeremy Renner"
+        ],
+        "logo_image_path": "assets/images/movies/avengers_infinity_war/logo.png",
+        "browse_image_path": "assets/images/movies/avengers_infinity_war/browse.PNG",
+        "selected_image_path": "assets/images/movies/avengers_infinity_war/selected.PNG",
+        "highlight_image_path": ""
+      },
+      {
+        "id": 4,
+        "title": "Avengers: EndGame",
+        "category": "Marvel",
+        "duration": 184,
+        "release_date": "2019-04-25",
+        "rating": "Twelve",
+        "description": "The epic finale to the Infinity Sage, this dramatic showdown pits the Avengers against Thanos.",
+        "is_premier": false,
+        "genres": [
+          "ScienceFiction",
+          "Spy",
+          "SuperHero",
+          "ActionAdventure"
+        ],
+        "starring": [
+          "Robert Downey Jr.",
+          "Chris Hemsworth",
+          "Mark Ruffalo",
+          "Chris Evans",
+          "Scarlett Johansson",
+          "Jeremy Renner"
+        ],
+        "logo_image_path": "assets/images/movies/avengers_endgame/logo.png",
+        "browse_image_path": "assets/images/movies/avengers_endgame/browse.PNG",
+        "selected_image_path": "assets/images/movies/avengers_endgame/selected.PNG",
+        "highlight_image_path": ""
+      },
+      {
+        "id": 5,
+        "title": "Loki",
+        "category": "Marvel",
+        "duration": 23,
+        "release_date": "2021-06-09",
+        "rating": "Twelve",
+        "description": "The clock is ticking in the season finale which finds Loki and Sylvie on a date with destiny.",
+        "is_premier": false,
+        "genres": [
+          "ScienceFiction",
+          "Fantasy",
+          "ActionAdventure"
+        ],
+        "starring": [
+          "Tom Hiddleston",
+          "Sophia Di Martino",
+          "Owen Wilson",
+          "Jonathon Majors",
+          "Gugu Mbatha-Raw"
+        ],
+        "logo_image_path": "assets/images/movies/loki/logo.png",
+        "browse_image_path": "assets/images/movies/loki/browse.PNG",
+        "selected_image_path": "assets/images/movies/loki/selected.PNG",
+        "highlight_image_path": "assets/images/movies/loki/highlight.jpg"
       }
     ]
   }
