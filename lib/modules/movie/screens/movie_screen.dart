@@ -1,5 +1,5 @@
 import 'package:disney_plus/modules/movie/models/movie.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:disney_plus/widgets/movie_presentation.dart';
 import 'package:flutter/material.dart';
 
 class MovieScreen extends StatelessWidget {
@@ -12,10 +12,15 @@ class MovieScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text(
-        'Movie Screen',
-        style: TextStyle(color: Colors.white),
+    return Scaffold(
+      body: ListView(
+        physics: const BouncingScrollPhysics(),
+        children: [
+          MoviePresentaion(
+            logoImagePath: movie.logoImagePath,
+            backgroundImagePath: movie.selectedImagePath,
+          )
+        ],
       ),
     );
   }
