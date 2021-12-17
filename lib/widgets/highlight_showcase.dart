@@ -3,10 +3,10 @@ import 'package:disney_plus/modules/movie/models/movie.dart';
 import 'package:disney_plus/modules/movie/screens/movie_screen.dart';
 import 'package:flutter/material.dart';
 
-class MovieHighlightShowcase extends StatelessWidget {
+class HighlightShowcase extends StatelessWidget {
   final List<Movie> movies;
 
-  const MovieHighlightShowcase({
+  const HighlightShowcase({
     Key? key,
     required this.movies,
   }) : super(key: key);

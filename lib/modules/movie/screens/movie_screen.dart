@@ -30,7 +30,7 @@ class MovieScreen extends StatelessWidget {
               MovieStreamingInformation(
                 rating: movie.rating.name,
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 5),
               MovieRuntimeInformation(
                 releaseDate: movie.releaseDate,
                 duration: movie.duration,
