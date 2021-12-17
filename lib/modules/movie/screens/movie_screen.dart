@@ -1,5 +1,8 @@
 import 'package:disney_plus/modules/movie/models/movie.dart';
 import 'package:disney_plus/widgets/movie_presentation.dart';
+import 'package:disney_plus/modules/movie/types/rating_type.dart';
+import 'package:disney_plus/widgets/movie_runtime_information.dart';
+import 'package:disney_plus/widgets/movie_streaming_information.dart';
 import 'package:flutter/material.dart';
 
 class MovieScreen extends StatelessWidget {
@@ -12,16 +15,31 @@ class MovieScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: ListView(
-        physics: const BouncingScrollPhysics(),
-        children: [
-          MoviePresentaion(
-            logoImagePath: movie.logoImagePath,
-            backgroundImagePath: movie.selectedImagePath,
-          )
-        ],
-      ),
+    return ListView(
+      physics: const BouncingScrollPhysics(),
+      children: [
+        MoviePresentaion(
+          logoImagePath: movie.logoImagePath,
+          backgroundImagePath: movie.selectedImagePath,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Column(
+            children: [
+              const SizedBox(height: 80),
+              MovieStreamingInformation(
+                rating: movie.rating.name,
+              ),
+              const SizedBox(height: 10),
+              MovieRuntimeInformation(
+                releaseDate: movie.releaseDate,
+                duration: movie.duration,
+                genres: movie.genres,
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
