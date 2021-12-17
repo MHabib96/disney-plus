@@ -1,5 +1,5 @@
 import 'package:disney_plus/modules/movie/models/movie.dart';
-import 'package:disney_plus/widgets/movie_presentation.dart';
+import 'package:disney_plus/widgets/movie_wallpaper.dart';
 import 'package:disney_plus/modules/movie/types/rating_type.dart';
 import 'package:disney_plus/widgets/movie_runtime_information.dart';
 import 'package:disney_plus/widgets/movie_streaming_information.dart';
@@ -18,7 +18,7 @@ class MovieScreen extends StatelessWidget {
     return ListView(
       physics: const BouncingScrollPhysics(),
       children: [
-        MoviePresentaion(
+        MovieWallpaper(
           logoImagePath: movie.logoImagePath,
           backgroundImagePath: movie.selectedImagePath,
         ),

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class MoviePresentaion extends StatelessWidget {
+class MovieWallpaper extends StatelessWidget {
   final String logoImagePath;
   final String backgroundImagePath;
 
-  const MoviePresentaion({
+  const MovieWallpaper({
     Key? key,
     required this.logoImagePath,
     required this.backgroundImagePath,
