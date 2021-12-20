@@ -4,6 +4,9 @@ enum AppTheme { Default }
 
 final appThemes = {
   AppTheme.Default: ThemeData(
+    textTheme: const TextTheme(
+      bodyText2: TextStyle(color: Colors.white),
+    ),
     scaffoldBackgroundColor: const Color.fromRGBO(54, 69, 79, 0.2),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       type: BottomNavigationBarType.fixed,

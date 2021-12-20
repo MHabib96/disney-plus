@@ -3,6 +3,7 @@ import 'package:disney_plus/widgets/movie_wallpaper.dart';
 import 'package:disney_plus/modules/movie/types/rating_type.dart';
 import 'package:disney_plus/widgets/movie_runtime_information.dart';
 import 'package:disney_plus/widgets/movie_streaming_information.dart';
+import 'package:disney_plus/widgets/play_button_with_status.dart';
 import 'package:flutter/material.dart';
 
 class MovieScreen extends StatelessWidget {
@@ -30,11 +31,16 @@ class MovieScreen extends StatelessWidget {
               MovieStreamingInformation(
                 rating: movie.rating.name,
               ),
-              const SizedBox(height: 5),
+              const SizedBox(height: 2),
               MovieRuntimeInformation(
                 releaseDate: movie.releaseDate,
                 duration: movie.duration,
                 genres: movie.genres,
+              ),
+              const SizedBox(height: 5),
+              PlayButtonWithStatus(
+                duration: movie.duration,
+                watched: movie.watched,
               ),
             ],
           ),

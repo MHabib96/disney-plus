@@ -2,7 +2,7 @@ import 'package:disney_plus/modules/home/slivers/sliver_home_app_bar.dart';
 import 'package:disney_plus/modules/movie/interfaces/i_movie_repository.dart';
 import 'package:disney_plus/modules/movie/types/category_type.dart';
 import 'package:disney_plus/widgets/category_buttons.dart';
-import 'package:disney_plus/widgets/movie_highlight_showcase.dart';
+import 'package:disney_plus/widgets/highlight_showcase.dart';
 import 'package:disney_plus/widgets/movie_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:disney_plus/bindings.dart';
@@ -40,9 +40,10 @@ class _HomeScreenState extends State<HomeScreen> {
         ];
       },
       body: ListView(
+        padding: const EdgeInsets.only(top: 5),
         physics: const BouncingScrollPhysics(),
         children: [
-          MovieHighlightShowcase(
+          HighlightShowcase(
             movies: _movieRepository.getWithHighlights(),
           ),
           const Padding(
@@ -50,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: CategoryButtons(),
           ),
           MovieListView(
-            label: 'My Movies',
+            label: 'New to Disney+',
             movies: _movieRepository.getByCategory(CategoryType.Marvel),
           ),
         ],
