@@ -19,6 +19,8 @@ class Movie {
   @JsonKey(required: true)
   final int duration;
 
+  final int? watched;
+
   @JsonKey(required: true, name: 'release_date')
   final DateTime releaseDate;
 
@@ -54,6 +56,7 @@ class Movie {
     required this.title,
     required this.category,
     required this.duration,
+    this.watched,
     required this.releaseDate,
     required this.rating,
     required this.description,
