@@ -45,6 +45,12 @@ class MovieScreen extends StatelessWidget {
               ),
               const SizedBox(height: 5),
               const MovieUtilityButtons(),
+              const SizedBox(height: 20),
+              Text(
+                movie.description,
+                style: const TextStyle(fontSize: 16),
+              ),
+              const SizedBox(height: 40),
             ],
           ),
         ),
