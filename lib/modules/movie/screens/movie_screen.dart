@@ -1,4 +1,5 @@
 import 'package:disney_plus/modules/movie/models/movie.dart';
+import 'package:disney_plus/widgets/movie_utility_buttons.dart';
 import 'package:disney_plus/widgets/movie_wallpaper.dart';
 import 'package:disney_plus/modules/movie/types/rating_type.dart';
 import 'package:disney_plus/widgets/movie_runtime_information.dart';
@@ -42,6 +43,8 @@ class MovieScreen extends StatelessWidget {
                 duration: movie.duration,
                 watched: movie.watched,
               ),
+              const SizedBox(height: 5),
+              const MovieUtilityButtons(),
             ],
           ),
         ),
