@@ -1,4 +1,5 @@
 import 'package:disney_plus/modules/movie/models/movie.dart';
+import 'package:disney_plus/widgets/movie_tabs/movie_tabs.dart';
 import 'package:disney_plus/widgets/movie_utility_buttons.dart';
 import 'package:disney_plus/widgets/movie_wallpaper.dart';
 import 'package:disney_plus/modules/movie/types/rating_type.dart';
@@ -51,6 +52,7 @@ class MovieScreen extends StatelessWidget {
                 style: const TextStyle(fontSize: 16),
               ),
               const SizedBox(height: 40),
+              MovieTabs(),
             ],
           ),
         ),

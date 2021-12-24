@@ -1,6 +1,7 @@
 import 'package:disney_plus/bindings.dart';
 import 'package:disney_plus/config/themes/bloc/theme_bloc.dart';
 import 'package:disney_plus/modules/base/screens/navigator_base.dart';
+import 'package:disney_plus/widgets/movie_tabs/bloc/movie_tabs_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -19,6 +20,7 @@ class DisneyPlus extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => ThemeBloc()),
+        BlocProvider(create: (context) => MovieTabsBloc()),
       ],
       child: BlocBuilder<ThemeBloc, ThemeState>(
         builder: (context, state) {
