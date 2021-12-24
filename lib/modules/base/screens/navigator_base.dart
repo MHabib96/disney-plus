@@ -1,6 +1,8 @@
 import 'package:disney_plus/modules/base/types/tab_type.dart';
 import 'package:disney_plus/modules/base/widgets/tab_navigator.dart';
+import 'package:disney_plus/widgets/movie_tabs/bloc/movie_tabs_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class NavigatorBase extends StatefulWidget {
   const NavigatorBase({Key? key}) : super(key: key);
@@ -22,6 +24,7 @@ class _NavigatorBaseState extends State<NavigatorBase> {
     //Navigate back to tab route when current tab is selected.
     if (selectedTab == _currentTab) {
       _navigatorKeys[selectedTab]!.currentState!.popUntil((route) => route.isFirst);
+      BlocProvider.of<MovieTabsBloc>(context).add(ResetTab());
     }
     //Update state to newly selected tab screen.
     else {
