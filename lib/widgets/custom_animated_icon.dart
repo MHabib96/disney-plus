@@ -9,10 +9,12 @@ class CustomAnimatedIcon extends StatefulWidget {
   final double? iconSize;
   final double? beginRotation;
   final double? endRotation;
-  final bool? startWithEnd;
+  final bool? startInReverse;
   final EdgeInsets? padding;
   final String? label;
   final double? labelSize;
+  final Function()? startIconOnTap;
+  final Function()? endIconOnTap;
 
   const CustomAnimatedIcon({
     Key? key,
@@ -21,13 +23,15 @@ class CustomAnimatedIcon extends StatefulWidget {
     required this.duration,
     this.startIconColor = Colors.black,
     this.endIconColor = Colors.black,
-    this.startWithEnd = false,
-    this.iconSize = 24.0,
+    this.startInReverse = false,
+    this.iconSize = 26.0,
     this.beginRotation = 0.0,
     this.endRotation = 1.0,
     this.padding = EdgeInsets.zero,
     this.label,
     this.labelSize = 12.0,
+    this.startIconOnTap,
+    this.endIconOnTap,
   }) : super(key: key);
 
   @override
@@ -39,6 +43,8 @@ class _CustomAnimatedIconState extends State<CustomAnimatedIcon>
   late final AnimationController _animationController;
   late final Widget _startWidget;
   late final Widget _endWidget;
+  late final double _beginRotation;
+  late final double _endRotation;
   late Widget _selectedWidget;
   late bool _toggled;
 
@@ -56,8 +62,10 @@ class _CustomAnimatedIconState extends State<CustomAnimatedIcon>
       size: widget.iconSize,
       color: widget.endIconColor,
     );
-    _toggled = widget.startWithEnd! ? true : false;
-    _selectedWidget = widget.startWithEnd! ? _endWidget : _startWidget;
+    _toggled = widget.startInReverse!;
+    _beginRotation = (!widget.startInReverse! ? widget.beginRotation : widget.endRotation)!;
+    _endRotation = (!widget.startInReverse! ? widget.endRotation : widget.beginRotation)!;
+    _selectedWidget = widget.startInReverse! ? _endWidget : _startWidget;
     _animationController = AnimationController(
       vsync: this,
       duration: widget.duration,
@@ -72,11 +80,17 @@ class _CustomAnimatedIconState extends State<CustomAnimatedIcon>
       onTap: () {
         setState(() => _toggled = !_toggled);
         if (_toggled) {
+          if (widget.startIconOnTap != null) {
+            widget.startIconOnTap!();
+          }
           _animationController.isCompleted
               ? _animationController.reverse()
               : _animationController.forward();
           setState(() => _selectedWidget = _endWidget);
         } else {
+          if (widget.endIconOnTap != null) {
+            widget.endIconOnTap!();
+          }
           _animationController.isCompleted
               ? _animationController.reverse()
               : _animationController.forward();
@@ -87,8 +101,8 @@ class _CustomAnimatedIconState extends State<CustomAnimatedIcon>
         children: [
           RotationTransition(
             turns: Tween(
-              begin: !widget.startWithEnd! ? widget.beginRotation : widget.endRotation,
-              end: !widget.startWithEnd! ? widget.endRotation : widget.beginRotation,
+              begin: _beginRotation,
+              end: _endRotation,
             ).animate(
               CurvedAnimation(
                 parent: _animationController,

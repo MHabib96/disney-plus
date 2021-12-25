@@ -1,41 +1,59 @@
 import 'package:disney_plus/widgets/custom_animated_icon.dart';
+import 'package:disney_plus/widgets/movie_utility_buttons/bloc/movie_utility_buttons_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'utility_button.dart';
 
 class MovieUtilityButtons extends StatelessWidget {
-  const MovieUtilityButtons({Key? key}) : super(key: key);
+  final int movieId;
+
+  const MovieUtilityButtons({
+    Key? key,
+    required this.movieId,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: const [
-        CustomAnimatedIcon(
-          startIcon: Icons.add,
-          endIcon: Icons.check,
-          duration: Duration(milliseconds: 500),
-          startIconColor: Colors.white,
-          endIconColor: Colors.blue,
-          iconSize: 26,
-          beginRotation: 0.5,
-          endRotation: 1.0,
-          label: 'Watchlist',
-          padding: EdgeInsets.all(5),
-        ),
-        _UtilityButton(
-          icon: Icons.groups_rounded,
-          label: 'GroupWatch',
-        ),
-        _UtilityButton(
-          icon: Icons.movie_creation_outlined,
-          label: 'Trailer',
-        ),
-        _UtilityButton(
-          icon: Icons.download,
-          label: 'Download',
-        ),
-      ],
+    return BlocBuilder<MovieUtilityButtonsBloc, MovieUtilityButtonsState>(
+      builder: (context, state) {
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            CustomAnimatedIcon(
+              label: 'Watchlist',
+              startIcon: Icons.add,
+              endIcon: Icons.check,
+              startIconColor: Colors.white,
+              endIconColor: Colors.blue,
+              beginRotation: 0.5,
+              padding: const EdgeInsets.all(5),
+              duration: const Duration(milliseconds: 500),
+              startInReverse: state.watchlistIds.contains(movieId.toString()),
+              startIconOnTap: () {
+                BlocProvider.of<MovieUtilityButtonsBloc>(context)
+                    .add(AddMovieToWatchlist(movieId: movieId));
+              },
+              endIconOnTap: () {
+                BlocProvider.of<MovieUtilityButtonsBloc>(context)
+                    .add(RemoveMovieFromWatchlist(movieId: movieId));
+              },
+            ),
+            const _UtilityButton(
+              label: 'GroupWatch',
+              icon: Icons.groups_rounded,
+            ),
+            const _UtilityButton(
+              label: 'Trailer',
+              icon: Icons.movie_creation_outlined,
+            ),
+            const _UtilityButton(
+              label: 'Download',
+              icon: Icons.download,
+            ),
+          ],
+        );
+      },
     );
   }
 }
