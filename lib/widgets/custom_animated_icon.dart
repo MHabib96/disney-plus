@@ -6,9 +6,13 @@ class CustomAnimatedIcon extends StatefulWidget {
   final Duration duration;
   final Color? startIconColor;
   final Color? endIconColor;
-  final bool? startWithEnd;
+  final double? iconSize;
   final double? beginRotation;
   final double? endRotation;
+  final bool? startWithEnd;
+  final EdgeInsets? padding;
+  final String? label;
+  final double? labelSize;
 
   const CustomAnimatedIcon({
     Key? key,
@@ -18,8 +22,12 @@ class CustomAnimatedIcon extends StatefulWidget {
     this.startIconColor = Colors.black,
     this.endIconColor = Colors.black,
     this.startWithEnd = false,
+    this.iconSize = 24.0,
     this.beginRotation = 0.0,
     this.endRotation = 1.0,
+    this.padding = EdgeInsets.zero,
+    this.label,
+    this.labelSize = 12.0,
   }) : super(key: key);
 
   @override
@@ -29,8 +37,8 @@ class CustomAnimatedIcon extends StatefulWidget {
 class _CustomAnimatedIconState extends State<CustomAnimatedIcon>
     with SingleTickerProviderStateMixin {
   late final AnimationController _animationController;
-  late Widget _startWidget;
-  late Widget _endWidget;
+  late final Widget _startWidget;
+  late final Widget _endWidget;
   late Widget _selectedWidget;
   late bool _toggled;
 
@@ -39,11 +47,13 @@ class _CustomAnimatedIconState extends State<CustomAnimatedIcon>
     _startWidget = Icon(
       widget.startIcon,
       key: UniqueKey(),
+      size: widget.iconSize,
       color: widget.startIconColor,
     );
     _endWidget = Icon(
       widget.endIcon,
       key: UniqueKey(),
+      size: widget.iconSize,
       color: widget.endIconColor,
     );
     _toggled = widget.startWithEnd! ? true : false;
@@ -58,6 +68,7 @@ class _CustomAnimatedIconState extends State<CustomAnimatedIcon>
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      behavior: HitTestBehavior.opaque,
       onTap: () {
         setState(() => _toggled = !_toggled);
         if (_toggled) {
@@ -72,20 +83,33 @@ class _CustomAnimatedIconState extends State<CustomAnimatedIcon>
           setState(() => _selectedWidget = _startWidget);
         }
       },
-      child: RotationTransition(
-        turns: Tween(
-          begin: !widget.startWithEnd! ? widget.beginRotation : widget.endRotation,
-          end: !widget.startWithEnd! ? widget.endRotation : widget.beginRotation,
-        ).animate(
-          CurvedAnimation(
-            parent: _animationController,
-            curve: Curves.easeInOut,
+      child: Column(
+        children: [
+          RotationTransition(
+            turns: Tween(
+              begin: !widget.startWithEnd! ? widget.beginRotation : widget.endRotation,
+              end: !widget.startWithEnd! ? widget.endRotation : widget.beginRotation,
+            ).animate(
+              CurvedAnimation(
+                parent: _animationController,
+                curve: Curves.easeInOut,
+              ),
+            ),
+            child: Padding(
+              padding: widget.padding!,
+              child: AnimatedSwitcher(
+                duration: widget.duration,
+                child: _selectedWidget,
+              ),
+            ),
           ),
-        ),
-        child: AnimatedSwitcher(
-          duration: widget.duration,
-          child: _selectedWidget,
-        ),
+          if (widget.label != null) ...[
+            Text(
+              widget.label!,
+              style: TextStyle(fontSize: widget.labelSize),
+            ),
+          ],
+        ],
       ),
     );
   }

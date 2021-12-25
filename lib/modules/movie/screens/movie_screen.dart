@@ -1,6 +1,6 @@
 import 'package:disney_plus/modules/movie/models/movie.dart';
 import 'package:disney_plus/widgets/movie_tabs/movie_tabs.dart';
-import 'package:disney_plus/widgets/movie_utility_buttons.dart';
+import 'package:disney_plus/widgets/movie_utility_buttons/movie_utility_buttons.dart';
 import 'package:disney_plus/widgets/movie_wallpaper.dart';
 import 'package:disney_plus/modules/movie/types/rating_type.dart';
 import 'package:disney_plus/widgets/movie_runtime_information.dart';
