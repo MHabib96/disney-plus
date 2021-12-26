@@ -14,16 +14,20 @@ class MovieUtilityButtonsBloc extends Bloc<MovieUtilityButtonsEvent, MovieUtilit
   @override
   Stream<MovieUtilityButtonsState> mapEventToState(MovieUtilityButtonsEvent event) async* {
     if (event is AddMovieToWatchlist) {
-      var _watchlistIds = localStorageService.watchlistIds;
-      _watchlistIds.add(event.movieId.toString());
-      localStorageService.watchlistIds = _watchlistIds;
-      yield state.copyWith(watchlistIds: _watchlistIds);
+      var _uniqueIds = localStorageService.watchlistIds.toSet();
+      if (_uniqueIds.add(event.movieId.toString())) {
+        var _ids = _uniqueIds.toList();
+        localStorageService.watchlistIds = _ids;
+        yield state.copyWith(watchlistIds: _ids);
+      }
     }
     if (event is RemoveMovieFromWatchlist) {
-      var _watchlistIds = localStorageService.watchlistIds;
-      _watchlistIds.remove(event.movieId.toString());
-      localStorageService.watchlistIds = _watchlistIds;
-      yield state.copyWith(watchlistIds: _watchlistIds);
+      var _uniqueIds = localStorageService.watchlistIds.toSet();
+      if (_uniqueIds.remove(event.movieId.toString())) {
+        var _ids = _uniqueIds.toList();
+        localStorageService.watchlistIds = _ids;
+        yield state.copyWith(watchlistIds: _ids);
+      }
     }
   }
 }

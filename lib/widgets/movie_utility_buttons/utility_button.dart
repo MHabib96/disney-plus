@@ -3,8 +3,13 @@ part of 'movie_utility_buttons.dart';
 class _UtilityButton extends StatelessWidget {
   final IconData icon;
   final String label;
+  final EdgeInsets padding;
 
-  const _UtilityButton({required this.icon, required this.label});
+  const _UtilityButton({
+    required this.icon,
+    required this.label,
+    this.padding = EdgeInsets.zero,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +19,7 @@ class _UtilityButton extends StatelessWidget {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(5),
+            padding: padding,
             child: Icon(
               icon,
               size: 26,

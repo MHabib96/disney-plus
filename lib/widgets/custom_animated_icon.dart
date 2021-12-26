@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 class CustomAnimatedIcon extends StatefulWidget {
@@ -21,8 +23,8 @@ class CustomAnimatedIcon extends StatefulWidget {
     required this.startIcon,
     required this.endIcon,
     required this.duration,
-    this.startIconColor = Colors.black,
-    this.endIconColor = Colors.black,
+    this.startIconColor = Colors.white,
+    this.endIconColor = Colors.blue,
     this.startInReverse = false,
     this.iconSize = 26.0,
     this.beginRotation = 0.0,
@@ -41,12 +43,38 @@ class CustomAnimatedIcon extends StatefulWidget {
 class _CustomAnimatedIconState extends State<CustomAnimatedIcon>
     with SingleTickerProviderStateMixin {
   late final AnimationController _animationController;
+  late final CurvedAnimation _curvedAnimation;
   late final Widget _startWidget;
   late final Widget _endWidget;
   late final double _beginRotation;
   late final double _endRotation;
   late Widget _selectedWidget;
   late bool _toggled;
+
+  bool _enabled = true;
+
+  void _onTap() {
+    setState(() => {_toggled = !_toggled, _enabled = false});
+    if (_toggled) {
+      if (widget.startIconOnTap != null) {
+        widget.startIconOnTap!();
+      }
+      _animationController.isCompleted
+          ? _animationController.reverse()
+          : _animationController.forward();
+      setState(() => _selectedWidget = _endWidget);
+    } else {
+      if (widget.endIconOnTap != null) {
+        widget.endIconOnTap!();
+      }
+      _animationController.isCompleted
+          ? _animationController.reverse()
+          : _animationController.forward();
+      setState(() => _selectedWidget = _startWidget);
+    }
+    //Disable button while animation is running to avoid unpredictable behaviour.
+    Timer(widget.duration, () => setState(() => _enabled = true));
+  }
 
   @override
   void initState() {
@@ -65,50 +93,37 @@ class _CustomAnimatedIconState extends State<CustomAnimatedIcon>
     _toggled = widget.startInReverse!;
     _beginRotation = (!widget.startInReverse! ? widget.beginRotation : widget.endRotation)!;
     _endRotation = (!widget.startInReverse! ? widget.endRotation : widget.beginRotation)!;
-    _selectedWidget = widget.startInReverse! ? _endWidget : _startWidget;
+    _selectedWidget = !widget.startInReverse! ? _startWidget : _endWidget;
     _animationController = AnimationController(
       vsync: this,
       duration: widget.duration,
     );
+    _curvedAnimation = CurvedAnimation(
+      parent: _animationController,
+      curve: Curves.easeInOut,
+    );
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _curvedAnimation.dispose();
+    _animationController.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
-      onTap: () {
-        setState(() => _toggled = !_toggled);
-        if (_toggled) {
-          if (widget.startIconOnTap != null) {
-            widget.startIconOnTap!();
-          }
-          _animationController.isCompleted
-              ? _animationController.reverse()
-              : _animationController.forward();
-          setState(() => _selectedWidget = _endWidget);
-        } else {
-          if (widget.endIconOnTap != null) {
-            widget.endIconOnTap!();
-          }
-          _animationController.isCompleted
-              ? _animationController.reverse()
-              : _animationController.forward();
-          setState(() => _selectedWidget = _startWidget);
-        }
-      },
+      onTap: _enabled ? _onTap : null,
       child: Column(
         children: [
           RotationTransition(
             turns: Tween(
               begin: _beginRotation,
               end: _endRotation,
-            ).animate(
-              CurvedAnimation(
-                parent: _animationController,
-                curve: Curves.easeInOut,
-              ),
-            ),
+            ).animate(_curvedAnimation),
             child: Padding(
               padding: widget.padding!,
               child: AnimatedSwitcher(

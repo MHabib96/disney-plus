@@ -24,8 +24,6 @@ class MovieUtilityButtons extends StatelessWidget {
               label: 'Watchlist',
               startIcon: Icons.add,
               endIcon: Icons.check,
-              startIconColor: Colors.white,
-              endIconColor: Colors.blue,
               beginRotation: 0.5,
               padding: const EdgeInsets.all(5),
               duration: const Duration(milliseconds: 500),
@@ -42,14 +40,17 @@ class MovieUtilityButtons extends StatelessWidget {
             const _UtilityButton(
               label: 'GroupWatch',
               icon: Icons.groups_rounded,
+              padding: EdgeInsets.all(5),
             ),
             const _UtilityButton(
               label: 'Trailer',
               icon: Icons.movie_creation_outlined,
+              padding: EdgeInsets.all(5),
             ),
             const _UtilityButton(
               label: 'Download',
               icon: Icons.download,
+              padding: EdgeInsets.all(5),
             ),
           ],
         );
