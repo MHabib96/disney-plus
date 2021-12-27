@@ -3,6 +3,10 @@ import 'package:disney_plus/widgets/movie_tabs/movie_tab_type.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+part 'tabs/suggested_tab.dart';
+part 'tabs/extras_tab.dart';
+part 'tabs/details_tab.dart';
+
 class MovieTabs extends StatelessWidget {
   const MovieTabs({Key? key}) : super(key: key);
 
@@ -10,26 +14,36 @@ class MovieTabs extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<MovieTabsBloc, MovieTabsState>(
       builder: (context, state) {
-        return Row(
+        return Column(
           children: [
-            Expanded(
-              child: _TabButton(
-                tab: MovieTabType.Suggested,
-                selectedTab: state.tab,
-              ),
+            Row(
+              children: [
+                Expanded(
+                  child: _TabButton(
+                    tab: MovieTabType.Suggested,
+                    selectedTab: state.tab,
+                  ),
+                ),
+                Expanded(
+                  child: _TabButton(
+                    tab: MovieTabType.Extras,
+                    selectedTab: state.tab,
+                  ),
+                ),
+                Expanded(
+                  child: _TabButton(
+                    tab: MovieTabType.Details,
+                    selectedTab: state.tab,
+                  ),
+                ),
+              ],
             ),
-            Expanded(
-              child: _TabButton(
-                tab: MovieTabType.Extras,
-                selectedTab: state.tab,
-              ),
+            const Divider(
+              height: 0,
+              color: Colors.white,
             ),
-            Expanded(
-              child: _TabButton(
-                tab: MovieTabType.Details,
-                selectedTab: state.tab,
-              ),
-            ),
+            const SizedBox(height: 10),
+            _MovieTabSelector(selectedTab: state.tab),
           ],
         );
       },
@@ -49,6 +63,7 @@ class _TabButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      behavior: HitTestBehavior.opaque,
       onTap: () => BlocProvider.of<MovieTabsBloc>(context).add(ChangeTab(tab: tab)),
       child: Column(
         children: [
@@ -76,5 +91,23 @@ class _TabButton extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class _MovieTabSelector extends StatelessWidget {
+  final MovieTabType selectedTab;
+
+  const _MovieTabSelector({required this.selectedTab});
+
+  @override
+  Widget build(BuildContext context) {
+    switch (selectedTab) {
+      case MovieTabType.Suggested:
+        return _SuggestedTab();
+      case MovieTabType.Extras:
+        return _ExtrasTab();
+      case MovieTabType.Details:
+        return _DetailsTab();
+    }
   }
 }
