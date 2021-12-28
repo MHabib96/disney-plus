@@ -4,7 +4,7 @@ import 'package:disney_plus/modules/movie/interfaces/i_movie_repository.dart';
 import 'package:disney_plus/modules/movie/types/category_type.dart';
 
 class MovieRepository implements IMovieRepository {
-  List<Movie> _movies = [];
+  final List<Movie> _movies = [];
 
   @override
   Movie getById(movieId) {
