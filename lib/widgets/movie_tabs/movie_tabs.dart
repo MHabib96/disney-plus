@@ -1,3 +1,4 @@
+import 'package:disney_plus/modules/movie/models/movie.dart';
 import 'package:disney_plus/widgets/movie_tabs/bloc/movie_tabs_bloc.dart';
 import 'package:disney_plus/widgets/movie_tabs/movie_tab_type.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +9,12 @@ part 'tabs/extras_tab.dart';
 part 'tabs/details_tab.dart';
 
 class MovieTabs extends StatelessWidget {
-  const MovieTabs({Key? key}) : super(key: key);
+  final List<Movie> suggestedMovies;
+
+  const MovieTabs({
+    Key? key,
+    required this.suggestedMovies,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +49,10 @@ class MovieTabs extends StatelessWidget {
               color: Colors.white,
             ),
             const SizedBox(height: 10),
-            _MovieTabSelector(selectedTab: state.tab),
+            _MovieTabSelector(
+              selectedTab: state.tab,
+              suggestedMovies: suggestedMovies,
+            ),
           ],
         );
       },
@@ -96,14 +105,18 @@ class _TabButton extends StatelessWidget {
 
 class _MovieTabSelector extends StatelessWidget {
   final MovieTabType selectedTab;
+  final List<Movie> suggestedMovies;
 
-  const _MovieTabSelector({required this.selectedTab});
+  const _MovieTabSelector({
+    required this.selectedTab,
+    required this.suggestedMovies,
+  });
 
   @override
   Widget build(BuildContext context) {
     switch (selectedTab) {
       case MovieTabType.Suggested:
-        return _SuggestedTab();
+        return _SuggestedTab(suggestedMovies: suggestedMovies);
       case MovieTabType.Extras:
         return _ExtrasTab();
       case MovieTabType.Details:

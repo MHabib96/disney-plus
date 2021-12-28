@@ -1,4 +1,6 @@
+import 'package:disney_plus/bindings.dart';
 import 'package:disney_plus/modules/movie/models/movie.dart';
+import 'package:disney_plus/utils/services/interfaces/i_movie_service.dart';
 import 'package:disney_plus/widgets/movie_tabs/movie_tabs.dart';
 import 'package:disney_plus/widgets/movie_utility_buttons/movie_utility_buttons.dart';
 import 'package:disney_plus/widgets/movie_wallpaper.dart';
@@ -9,9 +11,11 @@ import 'package:disney_plus/widgets/play_button_with_status.dart';
 import 'package:flutter/material.dart';
 
 class MovieScreen extends StatelessWidget {
+  final _movieService = services.get<IMovieService>();
+
   final Movie movie;
 
-  const MovieScreen({
+  MovieScreen({
     Key? key,
     required this.movie,
   }) : super(key: key);
@@ -52,7 +56,9 @@ class MovieScreen extends StatelessWidget {
                 style: const TextStyle(fontSize: 16),
               ),
               const SizedBox(height: 40),
-              const MovieTabs(),
+              MovieTabs(
+                suggestedMovies: _movieService.getSuggestedMovies(movie, 6),
+              ),
             ],
           ),
         ),
