@@ -1,4 +1,6 @@
 import 'package:disney_plus/modules/movie/models/movie.dart';
+import 'package:disney_plus/modules/movie/screens/movie_screen.dart';
+import 'package:disney_plus/widgets/custom_grid_view.dart';
 import 'package:disney_plus/widgets/movie_tabs/bloc/movie_tabs_bloc.dart';
 import 'package:disney_plus/widgets/movie_tabs/movie_tab_type.dart';
 import 'package:flutter/material.dart';
