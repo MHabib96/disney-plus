@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+//Extend height of widget to keep it alive when scrolling in ListView.
+const double _bottomOffest = -80.0;
+
 class MovieWallpaper extends StatelessWidget {
   final String logoImagePath;
   final String backgroundImagePath;
@@ -12,13 +15,16 @@ class MovieWallpaper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      clipBehavior: Clip.none,
-      alignment: AlignmentDirectional.bottomCenter,
-      children: [
-        _Background(imagePath: backgroundImagePath),
-        _Logo(imagePath: logoImagePath),
-      ],
+    return Padding(
+      padding: EdgeInsets.only(bottom: _bottomOffest.abs()),
+      child: Stack(
+        clipBehavior: Clip.none,
+        alignment: AlignmentDirectional.bottomCenter,
+        children: [
+          _Background(imagePath: backgroundImagePath),
+          _Logo(imagePath: logoImagePath),
+        ],
+      ),
     );
   }
 }
@@ -61,7 +67,7 @@ class _Logo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      bottom: -80,
+      bottom: _bottomOffest,
       child: Image.asset(imagePath, height: 120),
     );
   }
