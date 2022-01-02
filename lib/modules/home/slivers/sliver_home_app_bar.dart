@@ -1,3 +1,4 @@
+import 'package:disney_plus/constants/asset_constants.dart';
 import 'package:flutter/material.dart';
 
 class SliverHomeAppBar extends SliverPersistentHeaderDelegate {
@@ -33,10 +34,7 @@ class SliverHomeAppBar extends SliverPersistentHeaderDelegate {
         padding: EdgeInsets.only(top: topPadding),
         child: Opacity(
           opacity: _getHeaderOpacity(shrinkOffset, maxExtent),
-          child: Image.asset(
-            'assets/images/logos/white_logo.png',
-            fit: BoxFit.fitHeight,
-          ),
+          child: Image.asset(kDisneyWhiteLogo, fit: BoxFit.fitHeight),
         ),
       ),
     );
