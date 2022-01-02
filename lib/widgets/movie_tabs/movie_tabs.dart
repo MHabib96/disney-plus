@@ -1,5 +1,8 @@
+import 'package:disney_plus/constants/app_constants.dart';
 import 'package:disney_plus/modules/movie/models/movie.dart';
 import 'package:disney_plus/modules/movie/screens/movie_screen.dart';
+import 'package:disney_plus/modules/movie/types/rating_type.dart';
+import 'package:disney_plus/utils/helpers/string_helper.dart';
 import 'package:disney_plus/widgets/custom_grid_view.dart';
 import 'package:disney_plus/widgets/movie_tabs/bloc/movie_tabs_bloc.dart';
 import 'package:disney_plus/widgets/movie_tabs/movie_tab_type.dart';
@@ -11,10 +14,12 @@ part 'tabs/extras_tab.dart';
 part 'tabs/details_tab.dart';
 
 class MovieTabs extends StatelessWidget {
+  final Movie selectedMovie;
   final List<Movie> suggestedMovies;
 
   const MovieTabs({
     Key? key,
+    required this.selectedMovie,
     required this.suggestedMovies,
   }) : super(key: key);
 
@@ -53,6 +58,7 @@ class MovieTabs extends StatelessWidget {
             const SizedBox(height: 10),
             _MovieTabSelector(
               selectedTab: state.tab,
+              selectedMovie: selectedMovie,
               suggestedMovies: suggestedMovies,
             ),
           ],
@@ -107,10 +113,12 @@ class _TabButton extends StatelessWidget {
 
 class _MovieTabSelector extends StatelessWidget {
   final MovieTabType selectedTab;
+  final Movie selectedMovie;
   final List<Movie> suggestedMovies;
 
   const _MovieTabSelector({
     required this.selectedTab,
+    required this.selectedMovie,
     required this.suggestedMovies,
   });
 
@@ -122,7 +130,9 @@ class _MovieTabSelector extends StatelessWidget {
       case MovieTabType.Extras:
         return _ExtrasTab();
       case MovieTabType.Details:
-        return _DetailsTab();
+        return _DetailsTab(
+          movie: selectedMovie,
+        );
     }
   }
 }

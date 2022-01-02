@@ -1,4 +1,5 @@
 import 'package:disney_plus/bindings.dart';
+import 'package:disney_plus/constants/app_constants.dart';
 import 'package:disney_plus/modules/movie/models/movie.dart';
 import 'package:disney_plus/utils/services/interfaces/i_movie_service.dart';
 import 'package:disney_plus/widgets/movie_tabs/movie_tabs.dart';
@@ -55,11 +56,11 @@ class MovieScreen extends StatelessWidget {
               backgroundImagePath: movie.selectedImagePath,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: kMovieScreenPadding),
               child: Column(
                 children: [
                   MovieStreamingInformation(
-                    rating: movie.rating.name,
+                    rating: movie.rating.nameAsNumber,
                   ),
                   const SizedBox(height: 2),
                   MovieRuntimeInformation(
@@ -81,6 +82,7 @@ class MovieScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 40),
                   MovieTabs(
+                    selectedMovie: movie,
                     suggestedMovies: _movieService.getSuggestedMovies(movie, 6),
                   ),
                 ],

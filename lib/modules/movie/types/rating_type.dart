@@ -6,7 +6,7 @@ enum RatingType {
 }
 
 extension RatingExtensions on RatingType {
-  String get name {
+  String get nameAsNumber {
     switch (this) {
       case RatingType.Zero:
         return '0+';

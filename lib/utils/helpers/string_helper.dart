@@ -16,3 +16,11 @@ String formatGenres(List<GenreType> genres) {
   }
   return buffer.toString();
 }
+
+String formatStarring(List<String> actors) {
+  var buffer = StringBuffer();
+  for (var actor in actors) {
+    buffer.write('$actor\n');
+  }
+  return buffer.toString();
+}
