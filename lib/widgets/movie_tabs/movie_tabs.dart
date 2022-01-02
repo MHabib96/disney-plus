@@ -37,12 +37,12 @@ class MovieTabs extends StatelessWidget {
                     selectedTab: state.tab,
                   ),
                 ),
-                Expanded(
-                  child: _TabButton(
-                    tab: MovieTabType.Extras,
-                    selectedTab: state.tab,
-                  ),
-                ),
+                // Expanded(
+                //   child: _TabButton(
+                //     tab: MovieTabType.Extras,
+                //     selectedTab: state.tab,
+                //   ),
+                // ),
                 Expanded(
                   child: _TabButton(
                     tab: MovieTabType.Details,
@@ -127,8 +127,7 @@ class _MovieTabSelector extends StatelessWidget {
     switch (selectedTab) {
       case MovieTabType.Suggested:
         return _SuggestedTab(suggestedMovies: suggestedMovies);
-      case MovieTabType.Extras:
-        return _ExtrasTab();
+
       case MovieTabType.Details:
         return _DetailsTab(
           movie: selectedMovie,

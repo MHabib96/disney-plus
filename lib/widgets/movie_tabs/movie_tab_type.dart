@@ -1,1 +1,1 @@
-enum MovieTabType { Suggested, Extras, Details }
+enum MovieTabType { Suggested, Details }
