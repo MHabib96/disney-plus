@@ -38,6 +38,8 @@ flutter:
     - assets/images/movies/avengers_endgame/
     - assets/images/movies/the_falcon_and_the_winter_soldier/
     - assets/images/movies/loki/
+    - assets/images/movies/wanda_vision/
+    - assets/images/movies/shang_chi_legend_of_the_ten_rings/
 
   # fonts:
   #   - family: Schyler

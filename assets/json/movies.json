@@ -137,6 +137,63 @@
         "browse_image_path": "assets/images/movies/loki/browse.PNG",
         "selected_image_path": "assets/images/movies/loki/selected.PNG",
         "highlight_image_path": "assets/images/movies/loki/highlight.jpg"
+      },
+      {
+        "id": 6,
+        "title": "Wonda Vision",
+        "category": "Marvel",
+        "duration": 23,
+        "release_date": "2021-01-15",
+        "rating": "Twelve",
+        "description": "Two super-powered beings living idealized suburban lives suspect that everything is not as it seems.",
+        "is_premier": false,
+        "genres": [
+          "Romance",
+          "Drama",
+          "ScienceFiction",
+          "Fantasy",
+          "SuperHero"
+        ],
+        "starring": [
+          "Elizabeth Olsen",
+          "Paul Bettany",
+          "Teyonah Parris",
+          "Kathryn Hahn",
+          "Randall Park",
+          "Kat Dennings"
+        ],
+        "logo_image_path": "assets/images/movies/wanda_vision/logo.png",
+        "browse_image_path": "assets/images/movies/wanda_vision/browse.PNG",
+        "selected_image_path": "assets/images/movies/wanda_vision/selected.PNG",
+        "highlight_image_path": ""
+      },
+      {
+        "id": 7,
+        "title": "Shang Chi and the Legend of the Ten Rings",
+        "category": "Marvel",
+        "duration": 154,
+        "watched": 40,
+        "release_date": "2021-09-02",
+        "rating": "Twelve",
+        "description": "Shang-Chi must confront his father, leader of the Ten Rings organization.",
+        "is_premier": false,
+        "genres": [
+          "Fantasy",
+          "SuperHero",
+          "ActionAdventure"
+        ],
+        "starring": [
+          "Simu Liu",
+          "Awkwafina",
+          "Tony Leung",
+          "Michelle Yeoh",
+          "Meng'er Zhang",
+          "Ben Kingsley"
+        ],
+        "logo_image_path": "assets/images/movies/shang_chi_legend_of_the_ten_rings/logo.png",
+        "browse_image_path": "assets/images/movies/shang_chi_legend_of_the_ten_rings/browse.PNG",
+        "selected_image_path": "assets/images/movies/shang_chi_legend_of_the_ten_rings/selected.PNG",
+        "highlight_image_path": "assets/images/movies/shang_chi_legend_of_the_ten_rings/highlight.PNG"
       }
     ]
   }

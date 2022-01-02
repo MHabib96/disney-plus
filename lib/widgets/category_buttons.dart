@@ -1,3 +1,4 @@
+import 'package:disney_plus/constants/asset_constants.dart';
 import 'package:flutter/material.dart';
 
 class CategoryButtons extends StatelessWidget {
@@ -9,45 +10,21 @@ class CategoryButtons extends StatelessWidget {
       children: [
         Row(
           children: const [
-            Expanded(
-              child: _CategoryButton(
-                imagePath: 'assets/images/category_logos/disney.png',
-              ),
-            ),
+            Expanded(child: _CategoryButton(imagePath: kDisneyCategoryLogo)),
             SizedBox(width: 10),
-            Expanded(
-              child: _CategoryButton(
-                imagePath: 'assets/images/category_logos/pixar.png',
-              ),
-            ),
+            Expanded(child: _CategoryButton(imagePath: kPixarCategoryLogo)),
             SizedBox(width: 10),
-            Expanded(
-              child: _CategoryButton(
-                imagePath: 'assets/images/category_logos/marvel.png',
-              ),
-            ),
+            Expanded(child: _CategoryButton(imagePath: kMarvelCategoryLogo)),
           ],
         ),
         const SizedBox(height: 10),
         Row(
           children: const [
-            Expanded(
-              child: _CategoryButton(
-                imagePath: 'assets/images/category_logos/star_wars.png',
-              ),
-            ),
+            Expanded(child: _CategoryButton(imagePath: kStarWarsCategoryLogo)),
             SizedBox(width: 10),
-            Expanded(
-              child: _CategoryButton(
-                imagePath: 'assets/images/category_logos/national_geographic.png',
-              ),
-            ),
+            Expanded(child: _CategoryButton(imagePath: kNationalGeographicCategoryLogo)),
             SizedBox(width: 10),
-            Expanded(
-              child: _CategoryButton(
-                imagePath: 'assets/images/category_logos/star.png',
-              ),
-            ),
+            Expanded(child: _CategoryButton(imagePath: kStarCategoryLogo)),
           ],
         ),
       ],
