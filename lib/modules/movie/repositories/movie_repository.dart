@@ -12,6 +12,11 @@ class MovieRepository implements IMovieRepository {
   }
 
   @override
+  List<Movie> getByIds(List<int> ids) {
+    return ids.map((id) => getById(id)).toList();
+  }
+
+  @override
   List<Movie> getByCategory(CategoryType category) {
     return _movies.where((movie) => movie.category == category).toList();
   }

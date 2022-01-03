@@ -2,7 +2,6 @@ import 'package:disney_plus/constants/movie_constants.dart';
 import 'package:disney_plus/modules/home/slivers/sliver_home_app_bar.dart';
 import 'package:disney_plus/modules/movie/interfaces/i_movie_repository.dart';
 import 'package:disney_plus/modules/movie/types/category_type.dart';
-import 'package:disney_plus/utils/helpers/movie_helpers.dart';
 import 'package:disney_plus/widgets/category_buttons.dart';
 import 'package:disney_plus/widgets/highlight_showcase.dart';
 import 'package:disney_plus/widgets/movie_list_view.dart';
@@ -57,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: const EdgeInsets.only(bottom: 20),
               child: MovieListView(
                 label: movieList.key,
-                movies: getMoviesFromIds(movieList.value),
+                movies: _movieRepository.getByIds(movieList.value),
               ),
             ),
           ],
