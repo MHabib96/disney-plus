@@ -1,6 +1,6 @@
 import 'package:disney_plus/bindings.dart';
-import 'package:disney_plus/modules/movie/interfaces/i_movie_repository.dart';
 import 'package:disney_plus/modules/movie/models/movie.dart';
+import 'package:disney_plus/repositories/interfaces/i_movie_repository.dart';
 import 'package:disney_plus/utils/extensions/map_extensions.dart';
 import 'package:disney_plus/utils/extensions/iterable_extensions.dart';
 import 'package:disney_plus/utils/services/interfaces/i_movie_service.dart';

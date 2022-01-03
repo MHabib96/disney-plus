@@ -1,5 +1,5 @@
-import 'package:disney_plus/modules/movie/interfaces/i_movie_repository.dart';
-import 'package:disney_plus/modules/movie/repositories/movie_repository.dart';
+import 'package:disney_plus/repositories/interfaces/i_movie_repository.dart';
+import 'package:disney_plus/repositories/movie_repository.dart';
 import 'package:disney_plus/utils/services/interfaces/i_json_service.dart';
 import 'package:disney_plus/utils/services/interfaces/i_local_storage_service.dart';
 import 'package:disney_plus/utils/services/interfaces/i_movie_service.dart';

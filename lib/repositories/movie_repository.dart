@@ -1,7 +1,7 @@
 import 'dart:math';
 import 'package:disney_plus/modules/movie/models/movie.dart';
-import 'package:disney_plus/modules/movie/interfaces/i_movie_repository.dart';
 import 'package:disney_plus/modules/movie/types/category_type.dart';
+import 'package:disney_plus/repositories/interfaces/i_movie_repository.dart';
 
 class MovieRepository implements IMovieRepository {
   final List<Movie> _movies = [];
