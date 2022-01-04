@@ -38,6 +38,11 @@ class MovieRepository implements IMovieRepository {
   }
 
   @override
+  List<Movie> getContinueWatching() {
+    return _movies.where((movie) => movie.watched != null).toList();
+  }
+
+  @override
   void populate(List<Movie> movies) {
     clear();
     _movies.addAll(movies);

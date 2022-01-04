@@ -48,6 +48,9 @@ class Movie {
   @JsonKey(required: true, name: 'selected_image_path')
   final String selectedImagePath;
 
+  @JsonKey(required: true, name: 'continue_image_path')
+  final String continueImagePath;
+
   @JsonKey(required: true, name: 'highlight_image_path')
   final String highlightImagePath;
 
@@ -66,6 +69,7 @@ class Movie {
     required this.logoImagePath,
     required this.browseImagePath,
     required this.selectedImagePath,
+    required this.continueImagePath,
     required this.highlightImagePath,
   });
 

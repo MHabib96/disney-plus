@@ -23,6 +23,7 @@ Movie _$MovieFromJson(Map<String, dynamic> json) {
       'logo_image_path',
       'browse_image_path',
       'selected_image_path',
+      'continue_image_path',
       'highlight_image_path'
     ],
   );
@@ -44,6 +45,7 @@ Movie _$MovieFromJson(Map<String, dynamic> json) {
     logoImagePath: json['logo_image_path'] as String,
     browseImagePath: json['browse_image_path'] as String,
     selectedImagePath: json['selected_image_path'] as String,
+    continueImagePath: json['continue_image_path'] as String,
     highlightImagePath: json['highlight_image_path'] as String,
   );
 }
@@ -63,6 +65,7 @@ Map<String, dynamic> _$MovieToJson(Movie instance) => <String, dynamic>{
       'logo_image_path': instance.logoImagePath,
       'browse_image_path': instance.browseImagePath,
       'selected_image_path': instance.selectedImagePath,
+      'continue_image_path': instance.continueImagePath,
       'highlight_image_path': instance.highlightImagePath,
     };
 

@@ -7,6 +7,7 @@ abstract class IMovieRepository {
   List<Movie> getByCategory(CategoryType category);
   List<Movie> getRandom(int numberOfMovies);
   List<Movie> getWithHighlights();
+  List<Movie> getContinueWatching();
 
   void populate(List<Movie> movies);
   void clear();

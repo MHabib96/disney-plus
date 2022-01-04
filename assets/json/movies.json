@@ -26,6 +26,7 @@
         "logo_image_path": "assets/images/movies/avengers/logo.png",
         "browse_image_path": "assets/images/movies/avengers/browse.PNG",
         "selected_image_path": "assets/images/movies/avengers/selected.PNG",
+        "continue_image_path": "assets/images/movies/avengers/continue.jpg",
         "highlight_image_path": ""
       },
       {
@@ -53,6 +54,7 @@
         "logo_image_path": "assets/images/movies/avengers_age_of_ultron/logo.png",
         "browse_image_path": "assets/images/movies/avengers_age_of_ultron/browse.PNG",
         "selected_image_path": "assets/images/movies/avengers_age_of_ultron/selected.PNG",
+        "continue_image_path": "assets/images/movies/avengers_age_of_ultron/continue.jpg",
         "highlight_image_path": ""
       },
       {
@@ -81,6 +83,7 @@
         "logo_image_path": "assets/images/movies/avengers_infinity_war/logo.png",
         "browse_image_path": "assets/images/movies/avengers_infinity_war/browse.PNG",
         "selected_image_path": "assets/images/movies/avengers_infinity_war/selected.PNG",
+        "continue_image_path": "assets/images/movies/avengers_infinity_war/continue.jpg",
         "highlight_image_path": ""
       },
       {
@@ -110,6 +113,7 @@
         "logo_image_path": "assets/images/movies/avengers_endgame/logo.png",
         "browse_image_path": "assets/images/movies/avengers_endgame/browse.PNG",
         "selected_image_path": "assets/images/movies/avengers_endgame/selected.png",
+        "continue_image_path": "assets/images/movies/avengers_endgame/continue.jpg",
         "highlight_image_path": ""
       },
       {
@@ -136,6 +140,7 @@
         "logo_image_path": "assets/images/movies/loki/logo.png",
         "browse_image_path": "assets/images/movies/loki/browse.PNG",
         "selected_image_path": "assets/images/movies/loki/selected.PNG",
+        "continue_image_path": "assets/images/movies/loki/continue.jpg",
         "highlight_image_path": "assets/images/movies/loki/highlight.jpg"
       },
       {
@@ -165,6 +170,7 @@
         "logo_image_path": "assets/images/movies/wanda_vision/logo.png",
         "browse_image_path": "assets/images/movies/wanda_vision/browse.PNG",
         "selected_image_path": "assets/images/movies/wanda_vision/selected.PNG",
+        "continue_image_path": "assets/images/movies/wanda_vision/continue.jpg",
         "highlight_image_path": ""
       },
       {
@@ -193,6 +199,7 @@
         "logo_image_path": "assets/images/movies/shang_chi_legend_of_the_ten_rings/logo.png",
         "browse_image_path": "assets/images/movies/shang_chi_legend_of_the_ten_rings/browse.PNG",
         "selected_image_path": "assets/images/movies/shang_chi_legend_of_the_ten_rings/selected.PNG",
+        "continue_image_path": "assets/images/movies/shang_chi_legend_of_the_ten_rings/continue.jpg",
         "highlight_image_path": "assets/images/movies/shang_chi_legend_of_the_ten_rings/highlight.PNG"
       }
     ]
