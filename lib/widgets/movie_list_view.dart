@@ -13,7 +13,7 @@ class MovieListView extends StatelessWidget {
     required this.movies,
     this.label,
     this.height = 130,
-    this.horizontalPadding = 20,
+    this.horizontalPadding = 0,
   }) : super(key: key);
 
   @override

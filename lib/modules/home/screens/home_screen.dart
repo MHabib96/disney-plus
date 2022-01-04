@@ -1,8 +1,11 @@
+import 'package:disney_plus/constants/app_constants.dart';
 import 'package:disney_plus/constants/movie_constants.dart';
 import 'package:disney_plus/modules/home/slivers/sliver_home_app_bar.dart';
 import 'package:disney_plus/repositories/interfaces/i_movie_repository.dart';
 import 'package:disney_plus/widgets/category_buttons.dart';
+import 'package:disney_plus/widgets/helpers/watch_status_bar.dart';
 import 'package:disney_plus/widgets/highlight_showcase.dart';
+import 'package:disney_plus/widgets/movie_continue_list_view.dart';
 import 'package:disney_plus/widgets/movie_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:disney_plus/bindings.dart';
@@ -56,9 +59,16 @@ class _HomeScreenState extends State<HomeScreen> {
               child: MovieListView(
                 label: movieList.key,
                 movies: _movieRepository.getByIds(movieList.value),
+                horizontalPadding: kMovieListViewHorizonalPadding,
               ),
             ),
           ],
+          MovieContinueListView(
+            label: 'Continue Watching',
+            movies: _movieRepository.getContinueWatching(),
+            horizontalPadding: kMovieListViewHorizonalPadding,
+          ),
+          const SizedBox(height: 40),
         ],
       ),
     );
